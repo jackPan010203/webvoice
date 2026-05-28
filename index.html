@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebVoice – Browser TTS Extension</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0f 100%);
+        }
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        .features {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .feature {
+            background: #13131f;
+            border: 1px solid #1e1e30;
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .feature h3 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .feature p { color: #888; font-size: 0.95em; }
+        .feature.free { border-color: #22c55e33; }
+        .feature.free h3 { color: #22c55e; }
+        .feature.paid { border-color: #f59e0b33; }
+        .feature.paid h3 { color: #f59e0b; }
+        .pricing {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 80px;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .plan {
+            background: #13131f;
+            border: 1px solid #1e1e30;
+            border-radius: 16px;
+            padding: 30px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .plan.popular {
+            border-color: #667eea;
+            background: linear-gradient(180deg, #1a1a2e 0%, #13131f 100%);
+        }
+        .plan.popular::before {
+            content: "Best Value";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        .plan h3 { color: #888; font-size: 0.9em; margin-bottom: 16px; }
+        .plan .price {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .plan .price span { font-size: 0.4em; color: #888; }
+        .plan .desc { color: #666; font-size: 0.85em; margin-bottom: 24px; }
+        .plan ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+        .plan ul li {
+            padding: 8px 0;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        .plan ul li::before {
+            content: "✓";
+            color: #22c55e;
+            margin-right: 8px;
+        }
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .plan-btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+        .plan-btn.primary:hover { opacity: 0.9; }
+        .plan-btn.secondary {
+            background: #1e1e30;
+            color: #667eea;
+            border: 1px solid #667eea44;
+        }
+        .plan-btn.secondary:hover { background: #1e1e30; border-color: #667eea; }
+        .store-link {
+            text-align: center;
+            padding: 40px 20px 80px;
+        }
+        .store-link a {
+            display: inline-block;
+            background: #fff;
+            color: #0a0a0f;
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 0.85em;
+            border-top: 1px solid #1e1e30;
+        }
+        footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
+        @media (max-width: 768px) {
+            .plans { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+            .features { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <span class="badge">Chrome Web Store</span>
+        <h1>WebVoice</h1>
+        <p>Browser text-to-speech extension. Free local朗读, powerful cloud TTS.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature free">
+            <h3>🆓 本地朗读 (Free)</h3>
+            <p>使用您设备本地语音引擎，无需联网，完全免费。适合日常浏览使用。</p>
+        </div>
+        <div class="feature paid">
+            <h3>☁️ 云端 TTS (Pro)</h3>
+            <p>高质量神经网络语音，多语言支持，情感合成。适合专业创作者和内容生产者。</p>
+        </div>
+        <div class="feature">
+            <h3>🌐 210+ 语言</h3>
+            <p>支持全球主流语言和方言，AI 语音自然流畅，适合各类内容创作场景。</p>
+        </div>
+        <div class="feature">
+            <h3>⚡ 即时响应</h3>
+            <p>云端处理毫秒级响应，流畅播放，不卡顿。支持长文本批量转换。</p>
+        </div>
+    </div>
+
+    <div class="pricing">
+        <h2>Choose Your Plan</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>Free</h3>
+                <div class="price">$0</div>
+                <p class="desc">永远免费</p>
+                <ul>
+                    <li>本地语音引擎</li>
+                    <li>无需联网</li>
+                    <li>基础控制功能</li>
+                </ul>
+                <a href="https://chrome.google.com/webstore" class="plan-btn secondary">Install Free</a>
+            </div>
+            <div class="plan popular">
+                <h3>Lifetime</h3>
+                <div class="price">$39.9</div>
+                <p class="desc">一次买断，终身使用</p>
+                <ul>
+                    <li>所有云端 TTS 功能</li>
+                    <li>210+ 语言支持</li>
+                    <li>无限使用次数</li>
+                    <li>未来所有更新</li>
+                </ul>
+                <a href="#" class="plan-btn primary" id="lifetime-btn">Buy Lifetime</a>
+            </div>
+            <div class="plan">
+                <h3>Monthly</h3>
+                <div class="price">$2.9<span>/mo</span></div>
+                <p class="desc">按月订阅</p>
+                <ul>
+                    <li>所有云端 TTS 功能</li>
+                    <li>210+ 语言支持</li>
+                    <li>随时取消</li>
+                </ul>
+                <a href="#" class="plan-btn primary" id="monthly-btn">Subscribe Monthly</a>
+            </div>
+        </div>
+        <div class="plans" style="margin-top: 20px;">
+            <div class="plan" style="grid-column: 1 / -1;">
+                <h3>Yearly</h3>
+                <div class="price">$19.9<span>/year</span></div>
+                <p class="desc">年付，平均每月不到 $1.7</p>
+                <ul style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
+                    <li>所有云端 TTS 功能</li>
+                    <li>210+ 语言支持</li>
+                    <li>无限使用次数</li>
+                    <li>随时取消</li>
+                </ul>
+                <a href="#" class="plan-btn primary" id="yearly-btn" style="max-width: 200px; margin: 0 auto;">Subscribe Yearly</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="store-link">
+        <a href="https://chrome.google.com/webstore" target="_blank">↗ Get WebVoice on Chrome Web Store</a>
+    </div>
+
+    <footer>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <br><br>
+        © 2026 WebVoice. All rights reserved.
+    </footer>
+
+    <!-- Paddle SDK -->
+    <script src="https://cdn.paddle.js/paddle.js"></script>
+    <script>
+        // Paddle will be configured after you provide your Paddle Vendor ID
+        // For now, buttons link to your Paddle pricing page
+        document.getElementById('monthly-btn').href = '#monthly';
+        document.getElementById('yearly-btn').href = '#yearly';
+        document.getElementById('lifetime-btn').href = '#lifetime';
+    </script>
+</body>
+</html>
