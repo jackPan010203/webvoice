@@ -3,282 +3,553 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebVoice – Browser TTS Extension</title>
+    <title>WebVoice - Web Page Reader | Listen to Any Web Page</title>
+    <meta name="description" content="WebVoice is a Chrome extension that reads selected text and web pages aloud. Translate before reading, choose voices, control speed, and export cloud TTS audio.">
+    <meta name="keywords" content="web page reader, Chrome text to speech extension, read web pages aloud, listen to articles, selected text reader, webpage TTS, translate and read aloud, cloud TTS Chrome extension, download text to speech audio">
+    <meta property="og:title" content="WebVoice - Listen to Any Web Page">
+    <meta property="og:description" content="Read selected text or full articles aloud with local and cloud text-to-speech.">
+    <meta property="og:image" content="assets/promo-marquee-1400x560.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --brand-blue: #2563eb;
+            --deep-navy: #0f172a;
+            --text: #1e293b;
+            --muted: #64748b;
+            --surface: #ffffff;
+            --bg: #f8fafc;
+            --border: #dbe3ef;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0f;
-            color: #e0e0e0;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
-        .hero {
-            text-align: center;
-            padding: 80px 20px 60px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #0a0a0f 100%);
+        a { color: var(--brand-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Nav */
+        nav {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .hero h1 {
-            font-size: 3em;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            font-size: 1.1em;
+            color: var(--deep-navy);
         }
-        .hero p {
-            font-size: 1.2em;
-            color: #888;
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .nav-brand img { width: 28px; height: 28px; }
+        .nav-links { display: flex; gap: 28px; font-size: 0.9em; }
+        .nav-links a { color: var(--muted); }
+        .nav-links a:hover { color: var(--brand-blue); text-decoration: none; }
+
+        /* Hero */
+        .hero {
+            background: var(--surface);
+            padding: 80px 24px 60px;
+            text-align: center;
         }
-        .badge {
+        .hero-badge {
             display: inline-block;
-            background: rgba(102, 126, 234, 0.15);
-            color: #667eea;
-            padding: 6px 16px;
+            background: #eff6ff;
+            color: var(--brand-blue);
+            padding: 4px 14px;
             border-radius: 20px;
             font-size: 0.85em;
-            border: 1px solid rgba(102, 126, 234, 0.3);
+            font-weight: 500;
+            margin-bottom: 20px;
+            border: 1px solid #bfdbfe;
         }
-        .features {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: var(--deep-navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .hero p {
+            font-size: 1.15em;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto 36px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--brand-blue);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover { background: #1d4ed8; text-decoration: none; }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1em;
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-secondary:hover { background: var(--bg); text-decoration: none; }
+        .hero-screenshot {
+            max-width: 860px;
+            margin: 48px auto 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 0 0 1px var(--border);
+        }
+        .hero-screenshot img { width: 100%; height: auto; display: block; }
+
+        /* Section */
+        section { max-width: 960px; margin: 0 auto; padding: 64px 24px; }
+        .section-title {
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--deep-navy);
+            margin-bottom: 40px;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            font-size: 1.2em;
+        }
+        .feature-card h3 { font-size: 1em; font-weight: 700; color: var(--deep-navy); margin-bottom: 8px; }
+        .feature-card p { font-size: 0.9em; color: var(--muted); }
+
+        /* How it works */
+        .how-it-works {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            text-align: center;
+        }
+        .step { position: relative; padding: 0 12px; }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: var(--brand-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9em;
+            margin: 0 auto 14px;
+        }
+        .step p { font-size: 0.85em; color: var(--muted); line-height: 1.4; }
+        .step-arrow {
+            position: absolute;
+            right: -10px;
+            top: 14px;
+            color: var(--border);
+            font-size: 1.2em;
+        }
+        .step:last-child .step-arrow { display: none; }
+
+        /* Screenshots */
+        .screenshots {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .screenshot-img {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+        .screenshot-img img { width: 100%; height: auto; display: block; }
+
+        /* Free vs Pro */
+        .pricing-table {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .feature {
-            background: #13131f;
-            border: 1px solid #1e1e30;
-            border-radius: 16px;
-            padding: 30px;
-        }
-        .feature h3 {
-            color: #fff;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-        .feature p { color: #888; font-size: 0.95em; }
-        .feature.free { border-color: #22c55e33; }
-        .feature.free h3 { color: #22c55e; }
-        .feature.paid { border-color: #f59e0b33; }
-        .feature.paid h3 { color: #f59e0b; }
-        .pricing {
-            max-width: 800px;
+            gap: 24px;
+            max-width: 760px;
             margin: 0 auto;
-            padding: 20px 20px 80px;
         }
-        .pricing h2 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 40px;
-            color: #fff;
-        }
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .plan {
-            background: #13131f;
-            border: 1px solid #1e1e30;
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 30px 24px;
-            text-align: center;
-            position: relative;
+            padding: 32px;
         }
-        .plan.popular {
-            border-color: #667eea;
-            background: linear-gradient(180deg, #1a1a2e 0%, #13131f 100%);
+        .pricing-card.pro {
+            border-color: var(--brand-blue);
+            box-shadow: 0 0 0 1px var(--brand-blue);
         }
-        .plan.popular::before {
-            content: "Best Value";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-            padding: 4px 16px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 600;
-        }
-        .plan h3 { color: #888; font-size: 0.9em; margin-bottom: 16px; }
-        .plan .price {
-            font-size: 2.2em;
+        .pricing-label {
+            font-size: 0.8em;
             font-weight: 700;
-            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
             margin-bottom: 8px;
         }
-        .plan .price span { font-size: 0.4em; color: #888; }
-        .plan .desc { color: #666; font-size: 0.85em; margin-bottom: 24px; }
-        .plan ul {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 24px;
+        .pricing-card.pro .pricing-label { color: var(--brand-blue); }
+        .pricing-title { font-size: 1.3em; font-weight: 700; color: var(--deep-navy); margin-bottom: 16px; }
+        .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .pricing-list li { font-size: 0.9em; color: var(--text); display: flex; align-items: center; gap: 10px; }
+        .pricing-list li::before { content: "✓"; color: var(--brand-blue); font-weight: 700; }
+        .pricing-list li.negative::before { content: "✗"; color: #dc2626; }
+
+        /* Privacy */
+        .privacy-row {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 16px;
         }
-        .plan ul li {
-            padding: 8px 0;
-            color: #aaa;
-            font-size: 0.9em;
+        .privacy-icon { font-size: 1.5em; flex-shrink: 0; }
+        .privacy-row h3 { font-size: 1em; font-weight: 700; color: var(--deep-navy); margin-bottom: 6px; }
+        .privacy-row p { font-size: 0.9em; color: var(--muted); }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
         }
-        .plan ul li::before {
-            content: "✓";
-            color: #22c55e;
-            margin-right: 8px;
-        }
-        .plan-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
+        .faq-item h3 { font-size: 1em; font-weight: 700; color: var(--deep-navy); margin-bottom: 8px; }
+        .faq-item p { font-size: 0.9em; color: var(--muted); }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--deep-navy);
+            border-radius: 16px;
+            padding: 64px 24px;
             text-align: center;
-            transition: all 0.2s;
+            color: white;
         }
-        .plan-btn.primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
-        }
-        .plan-btn.primary:hover { opacity: 0.9; }
-        .plan-btn.secondary {
-            background: #1e1e30;
-            color: #667eea;
-            border: 1px solid #667eea44;
-        }
-        .plan-btn.secondary:hover { background: #1e1e30; border-color: #667eea; }
-        .store-link {
-            text-align: center;
-            padding: 40px 20px 80px;
-        }
-        .store-link a {
-            display: inline-block;
-            background: #fff;
-            color: #0a0a0f;
-            padding: 14px 32px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1em;
-        }
+        .final-cta h2 { font-size: 2em; font-weight: 800; margin-bottom: 12px; }
+        .final-cta p { color: #94a3b8; font-size: 1.05em; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .final-cta .btn-primary { background: var(--brand-blue); }
+
+        /* Footer */
         footer {
-            text-align: center;
-            padding: 40px;
-            color: #444;
-            font-size: 0.85em;
-            border-top: 1px solid #1e1e30;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 24px;
         }
-        footer a { color: #667eea; text-decoration: none; margin: 0 8px; }
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--deep-navy);
+            font-size: 0.95em;
+        }
+        .footer-brand img { width: 22px; height: 22px; }
+        .footer-text { font-size: 0.85em; color: var(--muted); }
+        .footer-links { display: flex; gap: 20px; font-size: 0.85em; }
+        .footer-links a { color: var(--muted); }
+        .footer-links a:hover { color: var(--brand-blue); text-decoration: none; }
+
         @media (max-width: 768px) {
-            .plans { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
-            .features { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2em; }
+            .how-it-works { grid-template-columns: 1fr; gap: 24px; }
+            .step-arrow { display: none; }
+            .pricing-table { grid-template-columns: 1fr; }
+            .nav-links { gap: 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <span class="badge">Chrome Web Store</span>
-        <h1>WebVoice</h1>
-        <p>Browser text-to-speech extension. Free local朗读, powerful cloud TTS.</p>
-    </div>
 
-    <div class="features">
-        <div class="feature free">
-            <h3>🆓 本地朗读 (Free)</h3>
-            <p>使用您设备本地语音引擎，无需联网，完全免费。适合日常浏览使用。</p>
-        </div>
-        <div class="feature paid">
-            <h3>☁️ 云端 TTS (Pro)</h3>
-            <p>高质量神经网络语音，多语言支持，情感合成。适合专业创作者和内容生产者。</p>
-        </div>
-        <div class="feature">
-            <h3>🌐 210+ 语言</h3>
-            <p>支持全球主流语言和方言，AI 语音自然流畅，适合各类内容创作场景。</p>
-        </div>
-        <div class="feature">
-            <h3>⚡ 即时响应</h3>
-            <p>云端处理毫秒级响应，流畅播放，不卡顿。支持长文本批量转换。</p>
-        </div>
+<!-- Nav -->
+<nav>
+    <div class="nav-brand">
+        <img src="assets/webvoice-icon-128.png" alt="WebVoice">
+        <span>WebVoice</span>
     </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="support/">Support</a>
+        <a href="privacy/">Privacy</a>
+        <a href="CHROME_WEB_STORE_URL_HERE">Chrome Web Store</a>
+    </div>
+</nav>
 
-    <div class="pricing">
-        <h2>Choose Your Plan</h2>
-        <div class="plans">
-            <div class="plan">
-                <h3>Free</h3>
-                <div class="price">$0</div>
-                <p class="desc">永远免费</p>
-                <ul>
-                    <li>本地语音引擎</li>
-                    <li>无需联网</li>
-                    <li>基础控制功能</li>
-                </ul>
-                <a href="https://chrome.google.com/webstore" class="plan-btn secondary">Install Free</a>
-            </div>
-            <div class="plan popular">
-                <h3>Lifetime</h3>
-                <div class="price">$39.9</div>
-                <p class="desc">一次买断，终身使用</p>
-                <ul>
-                    <li>所有云端 TTS 功能</li>
-                    <li>210+ 语言支持</li>
-                    <li>无限使用次数</li>
-                    <li>未来所有更新</li>
-                </ul>
-                <a href="#" class="plan-btn primary" id="lifetime-btn">Buy Lifetime</a>
-            </div>
-            <div class="plan">
-                <h3>Monthly</h3>
-                <div class="price">$2.9<span>/mo</span></div>
-                <p class="desc">按月订阅</p>
-                <ul>
-                    <li>所有云端 TTS 功能</li>
-                    <li>210+ 语言支持</li>
-                    <li>随时取消</li>
-                </ul>
-                <a href="#" class="plan-btn primary" id="monthly-btn">Subscribe Monthly</a>
-            </div>
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-badge">Chrome Extension · Local-First · Privacy by Default</div>
+    <h1>Listen to any web page</h1>
+    <p>WebVoice reads selected text or full articles aloud in Chrome. Use local voices for quick listening, translate before reading, or unlock cloud TTS for better voices and downloadable audio.</p>
+    <div class="hero-cta">
+        <a href="CHROME_WEB_STORE_URL_HERE" class="btn-primary">
+            Add to Chrome — Free
+        </a>
+        <a href="support/" class="btn-secondary">
+            View Support
+        </a>
+    </div>
+    <div class="hero-screenshot">
+        <img src="assets/screenshot-popup-main-1280x800.png" alt="WebVoice main popup">
+    </div>
+</div>
+
+<!-- Features -->
+<section>
+    <h2 class="section-title">Everything you need for listening to the web</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">✂</div>
+            <h3>Selected text first</h3>
+            <p>Highlight text on any page and start listening immediately. If nothing is selected, WebVoice extracts the main article body automatically.</p>
         </div>
-        <div class="plans" style="margin-top: 20px;">
-            <div class="plan" style="grid-column: 1 / -1;">
-                <h3>Yearly</h3>
-                <div class="price">$19.9<span>/year</span></div>
-                <p class="desc">年付，平均每月不到 $1.7</p>
-                <ul style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;">
-                    <li>所有云端 TTS 功能</li>
-                    <li>210+ 语言支持</li>
-                    <li>无限使用次数</li>
-                    <li>随时取消</li>
-                </ul>
-                <a href="#" class="plan-btn primary" id="yearly-btn" style="max-width: 200px; margin: 0 auto;">Subscribe Yearly</a>
-            </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3>Translation before reading</h3>
+            <p>Choose a target language and WebVoice translates the text before reading it aloud.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Local-first by default</h3>
+            <p>Default local reading uses browser/system voices and does not upload page text.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">☁</div>
+            <h3>Cloud TTS when quality matters</h3>
+            <p>Pro users connect cloud TTS providers for more natural voices and downloadable audio.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⌨</div>
+            <h3>Keyboard-friendly</h3>
+            <p>Use shortcuts such as Alt+W to start, pause, or resume, and Alt+S to stop.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Speed &amp; playback control</h3>
+            <p>Adjust reading speed, pause, resume, and skip forward or back — full playback controls at your fingertips.</p>
         </div>
     </div>
+</section>
 
-    <div class="store-link">
-        <a href="https://chrome.google.com/webstore" target="_blank">↗ Get WebVoice on Chrome Web Store</a>
+<!-- How it works -->
+<section>
+    <h2 class="section-title">How it works</h2>
+    <div class="how-it-works">
+        <div class="step">
+            <div class="step-num">1</div>
+            <p>Open a web page</p>
+            <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+            <div class="step-num">2</div>
+            <p>Select text, or let WebVoice detect the main article</p>
+            <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+            <div class="step-num">3</div>
+            <p>Choose speed, language, voice, and translation options</p>
+            <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+            <div class="step-num">4</div>
+            <p>Start listening</p>
+            <span class="step-arrow">→</span>
+        </div>
+        <div class="step">
+            <div class="step-num">5</div>
+            <p>Use Pro cloud TTS to download generated audio</p>
+        </div>
     </div>
+</section>
 
-    <footer>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="refund.html">Refund Policy</a>
-        <br><br>
-        © 2026 WebVoice. All rights reserved.
-    </footer>
+<!-- Screenshots -->
+<section>
+    <h2 class="section-title">See it in action</h2>
+    <div class="screenshots">
+        <div class="screenshot-img">
+            <img src="assets/screenshot-selection-translation-1280x800.png" alt="Selection and translation reading">
+        </div>
+        <div class="screenshot-img">
+            <img src="assets/screenshot-settings-subscription-1280x800.png" alt="Settings and subscription">
+        </div>
+    </div>
+</section>
 
-    <!-- Paddle SDK -->
-    <script src="https://cdn.paddle.js/paddle.js"></script>
-    <script>
-        // Paddle will be configured after you provide your Paddle Vendor ID
-        // For now, buttons link to your Paddle pricing page
-        document.getElementById('monthly-btn').href = '#monthly';
-        document.getElementById('yearly-btn').href = '#yearly';
-        document.getElementById('lifetime-btn').href = '#lifetime';
-    </script>
+<!-- Free vs Pro -->
+<section>
+    <h2 class="section-title">Free vs. Pro</h2>
+    <div class="pricing-table">
+        <div class="pricing-card">
+            <div class="pricing-label">Free</div>
+            <div class="pricing-title">Local Reading</div>
+            <ul class="pricing-list">
+                <li>Local selected-text reading</li>
+                <li>Local article reading</li>
+                <li>Playback controls</li>
+                <li>Speed control</li>
+                <li>Local/system voices</li>
+                <li>Selection quick menu</li>
+                <li>Keyboard shortcuts (Alt+W, Alt+S)</li>
+                <li class="negative">Cloud TTS voices</li>
+                <li class="negative">Audio download</li>
+                <li class="negative">Custom TTS configuration</li>
+            </ul>
+        </div>
+        <div class="pricing-card pro">
+            <div class="pricing-label">Pro</div>
+            <div class="pricing-title">Cloud TTS</div>
+            <ul class="pricing-list">
+                <li>Everything in Free</li>
+                <li>Cloud TTS voices</li>
+                <li>Higher-quality provider voices</li>
+                <li>Audio download from cloud TTS</li>
+                <li>Custom TTS configuration</li>
+                <li>Subscription or lifetime unlock</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Privacy -->
+<section>
+    <h2 class="section-title">Privacy &amp; Security</h2>
+    <div class="privacy-row">
+        <div class="privacy-icon">🔒</div>
+        <div>
+            <h3>Local reading stays local</h3>
+            <p>Default local reading uses browser/system voices and does not upload your page text anywhere.</p>
+        </div>
+    </div>
+    <div class="privacy-row">
+        <div class="privacy-icon">☁</div>
+        <div>
+            <h3>Cloud features are opt-in</h3>
+            <p>Cloud TTS and translation only send data when you explicitly enable and configure those features.</p>
+        </div>
+    </div>
+    <div class="privacy-row">
+        <div class="privacy-icon">🔑</div>
+        <div>
+            <h3>API keys stored locally</h3>
+            <p>Your API keys are stored in Chrome extension storage, never sent to WebVoice servers.</p>
+        </div>
+    </div>
+    <div class="privacy-row">
+        <div class="privacy-icon">💳</div>
+        <div>
+            <h3>Payments via Stripe</h3>
+            <p>WebVoice does not collect or store credit card numbers. Payments go directly through Stripe.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>Can WebVoice read any web page?</h3>
+        <p>WebVoice works on most pages, but cannot access Chrome internal pages, the Chrome Web Store, browser PDF viewers, protected iframes, heavily sandboxed pages, or pages where text is rendered inside canvas. In those cases, try manually selecting visible text.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Is local reading really private?</h3>
+        <p>Yes. Local reading uses your browser or operating system's built-in text-to-speech engine. Page text never leaves your device unless you enable cloud TTS.</p>
+    </div>
+    <div class="faq-item">
+        <h3>What cloud TTS providers are supported?</h3>
+        <p>WebVoice supports OpenAI, ElevenLabs, Microsoft Azure, Google, Baidu, Tencent, Alibaba, and any custom HTTP endpoint. You configure your own API keys.</p>
+    </div>
+    <div class="faq-item">
+        <h3>How do I upgrade to Pro?</h3>
+        <p>Open the WebVoice popup, go to Settings → Subscription, and follow the Stripe checkout link. Your Pro unlock is tied to your email address.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Can I use my own TTS API keys?</h3>
+        <p>Yes. Pro users can enter their own API keys for OpenAI, ElevenLabs, Azure, Google, Baidu, or any compatible custom endpoint. Keys are stored locally in your browser.</p>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<div class="final-cta" style="max-width:960px;margin:0 auto 48px;border-radius:16px;">
+    <h2>Start listening today</h2>
+    <p>Free local reading is available right now. Upgrade to Pro for cloud voices and audio download.</p>
+    <a href="CHROME_WEB_STORE_URL_HERE" class="btn-primary">Add to Chrome — Free</a>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <img src="assets/webvoice-icon-128.png" alt="WebVoice">
+            <span>WebVoice</span>
+        </div>
+        <div class="footer-text">WebVoice — Local-first reading for selected text and web pages.</div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="support/">Support</a>
+            <a href="privacy/">Privacy</a>
+            <a href="CHROME_WEB_STORE_URL_HERE">Chrome Web Store</a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
