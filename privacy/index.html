@@ -1,170 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebVoice Privacy Policy</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --brand-blue: #2563eb;
-            --deep-navy: #0f172a;
-            --text: #1e293b;
-            --muted: #64748b;
-            --surface: #ffffff;
-            --bg: #f8fafc;
-            --border: #dbe3ef;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-        a { color: var(--brand-blue); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        nav {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-        .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1em; color: var(--deep-navy); }
-        .nav-brand img { width: 28px; height: 28px; }
-        .nav-links { display: flex; gap: 28px; font-size: 0.9em; }
-        .nav-links a { color: var(--muted); }
-        .nav-links a:hover { color: var(--brand-blue); text-decoration: none; }
-        .page-header {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 48px 24px;
-            text-align: center;
-        }
-        .page-header h1 { font-size: 2em; font-weight: 800; color: var(--deep-navy); margin-bottom: 10px; }
-        .page-header p { color: var(--muted); font-size: 0.9em; }
-        .content { max-width: 760px; margin: 0 auto; padding: 48px 24px; background: var(--surface); border-radius: 12px; margin-top: 32px; margin-bottom: 32px; }
-        h2 { font-size: 1.2em; font-weight: 700; color: var(--deep-navy); margin: 36px 0 12px; }
-        h2:first-child { margin-top: 0; }
-        p { color: var(--text); font-size: 0.95em; margin-bottom: 14px; }
-        ul { padding-left: 20px; margin-bottom: 14px; }
-        li { color: var(--text); font-size: 0.95em; margin-bottom: 6px; }
-        footer {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 32px 24px;
-        }
-        .footer-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-        .footer-brand { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--deep-navy); font-size: 0.95em; }
-        .footer-brand img { width: 22px; height: 22px; }
-        .footer-text { font-size: 0.85em; color: var(--muted); }
-        .footer-links { display: flex; gap: 20px; font-size: 0.85em; }
-        .footer-links a { color: var(--muted); }
-        .footer-links a:hover { color: var(--brand-blue); text-decoration: none; }
-        .last-updated { background: #f1f5f9; border-radius: 6px; padding: 10px 14px; font-size: 0.88em; color: var(--muted); margin-bottom: 24px; display: inline-block; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — WebVoice</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --brand: #6366f1; --bg: #0f0f1a; --surface: #1a1a2e; --border: #2a2a4a; --text: #e2e8f0; --muted: #94a3b8; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+    a { color: var(--brand); text-decoration: none; }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    nav .container { display: flex; align-items: center; gap: 24px; }
+    .logo { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .logo span { color: var(--brand); }
+    h1 { font-size: 2rem; font-weight: 700; margin: 48px 0 12px; }
+    .date { color: var(--muted); font-size: 0.85rem; margin-bottom: 40px; }
+    h2 { font-size: 1.15rem; font-weight: 600; margin: 36px 0 12px; }
+    p, li { color: var(--muted); font-size: 0.9rem; }
+    ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px; }
+    footer .container { display: flex; gap: 20px; font-size: 0.85rem; }
+    footer a { color: var(--muted); }
+  </style>
 </head>
 <body>
-
 <nav>
-    <div class="nav-brand">
-        <img src="../assets/webvoice-icon-128.png" alt="WebVoice">
-        <span>WebVoice</span>
-    </div>
-    <div class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="../support/">Support</a>
-        <a href="../index.html">Privacy</a>
-        <a href="CHROME_WEB_STORE_URL_HERE">Chrome Web Store</a>
-    </div>
+  <div class="container">
+    <a href="../" class="logo">Web<span>Voice</span></a>
+  </div>
 </nav>
+<div class="container">
+  <h1>Privacy Policy</h1>
+  <p class="date">Last updated: June 2025</p>
 
-<div class="page-header">
-    <h1>Privacy Policy</h1>
-    <p>How WebVoice handles your data</p>
+  <p>WebVoice ("we", "our", or "us") is committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.</p>
+
+  <h2>1. Data We Collect</h2>
+  <ul>
+    <li><strong>Local processing:</strong> Text you select is processed entirely on your device. We never receive or store this content.</li>
+    <li><strong>Cloud AI requests:</strong> When you use cloud AI voices, the text is temporarily sent to our provider (MiniMax) to generate audio. It is not stored after playback completes.</li>
+    <li><strong>Usage data:</strong> We collect anonymized metrics (characters read, features used) to improve our service. This data cannot identify you.</li>
+    <li><strong>Account data:</strong> If you purchase a subscription, we store your email and order history. Payment processing is handled by Paddle, Inc., a PCI-DSS compliant provider.</li>
+  </ul>
+
+  <h2>2. How We Use Data</h2>
+  <ul>
+    <li>To deliver cloud TTS audio to you</li>
+    <li>To manage your subscription</li>
+    <li>To improve WebVoice performance and features</li>
+    <li>To respond to support requests</li>
+  </ul>
+
+  <h2>3. Data Sharing</h2>
+  <p>We do not sell your data. We share data only with:</p>
+  <ul>
+    <li>MiniMax (TTS processing provider)</li>
+    <li>Paddle (payment processing — you can find their privacy policy at <a href="https://www.paddle.com/legal/privacy" target="_blank">paddle.com/legal/privacy</a>)</li>
+    <li>Cloud providers (hosting, analytics) under strict confidentiality</li>
+  </ul>
+
+  <h2>4. Cookies</h2>
+  <p>We use minimal cookies for subscription management only. No advertising or tracking cookies.</p>
+
+  <h2>5. Your Rights</h2>
+  <p>Depending on your location, you may have the right to access, correct, or delete your personal data. Contact us at <a href="mailto:privacy@webvoice.app">privacy@webvoice.app</a>.</p>
+
+  <h2>6. Data Retention</h2>
+  <ul>
+    <li>Local content: Never stored by us</li>
+    <li>Cloud TTS: Deleted immediately after playback</li>
+    <li>Account data: Retained until you delete your account</li>
+  </ul>
+
+  <h2>7. Children's Privacy</h2>
+  <p>WebVoice is not intended for users under 13. We do not knowingly collect data from children.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We will notify you of material changes via the extension or email. Continued use after changes constitutes acceptance.</p>
+
+  <h2>9. Contact</h2>
+  <p>Email: <a href="mailto:privacy@webvoice.app">privacy@webvoice.app</a></p>
 </div>
-
-<div class="content">
-    <span class="last-updated">Effective date: 2026-06-08</span>
-
-    <h2>Overview</h2>
-    <p>WebVoice is a browser extension that reads selected text or web page content aloud. This privacy policy explains what data WebVoice accesses, how it is used, and your choices.</p>
-
-    <h2>Data Collection</h2>
-    <p>WebVoice does not collect, sell, or share personal data for advertising purposes.</p>
-
-    <h2>Local Reading</h2>
-    <p>When using the default local reading mode, selected text and page content are processed locally by your browser or operating system's text-to-speech engine. <strong>WebVoice does not upload this text to our servers.</strong></p>
-
-    <h2>Cloud TTS and Translation</h2>
-    <p>If you enable cloud TTS or cloud translation, the text you choose to read or translate may be sent to the provider you configure. Supported providers include:</p>
-    <ul>
-        <li>OpenAI</li>
-        <li>ElevenLabs</li>
-        <li>Microsoft Azure</li>
-        <li>Google</li>
-        <li>Baidu</li>
-        <li>Tencent</li>
-        <li>Alibaba</li>
-        <li>Custom HTTP endpoints</li>
-    </ul>
-    <p>WebVoice does not control those third-party providers. Their own privacy policies apply. We recommend reviewing the privacy policy of any provider you configure.</p>
-
-    <h2>API Keys</h2>
-    <p>If you enter API keys or tokens for cloud services, they are stored locally in your browser using Chrome extension storage. <strong>WebVoice does not sync or transmit your API keys to our servers.</strong></p>
-
-    <h2>Payments</h2>
-    <p>Payments are handled by Stripe-hosted checkout pages. <strong>WebVoice does not collect or store credit card numbers.</strong> All payment processing is performed directly by Stripe.</p>
-
-    <h2>Extension Permissions</h2>
-    <p>WebVoice requests the following permissions:</p>
-    <ul>
-        <li><strong>Active tab:</strong> Required to read page content after you take action (click or shortcut)</li>
-        <li><strong>Storage:</strong> Used to save your settings and API keys locally</li>
-        <li><strong>Download:</strong> Used to save cloud TTS audio files when you request a download</li>
-        <li><strong>TTS:</strong> Used to access browser text-to-speech for local reading</li>
-        <li><strong>Host permissions:</strong> Required only to connect to cloud TTS providers you explicitly configure</li>
-    </ul>
-
-    <h2>What WebVoice Does NOT Do</h2>
-    <ul>
-        <li>WebVoice does not track your browsing history</li>
-        <li>WebVoice does not collect analytics on your reading habits</li>
-        <li>WebVoice does not sell or share your personal data</li>
-        <li>WebVoice does not access your data when local reading is used</li>
-    </ul>
-
-    <h2>Your Choices</h2>
-    <p>You can control cloud features at any time:</p>
-    <ul>
-        <li>Disable cloud TTS in extension settings to stop all outbound requests</li>
-        <li>Clear your extension storage at any time from Chrome settings</li>
-        <li>Uninstall WebVoice at any time to remove all local data</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>For privacy questions or concerns, contact us at:<br>
-    <strong>Email:</strong> SUPPORT_EMAIL_HERE</p>
-
-</div>
-
 <footer>
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <img src="../assets/webvoice-icon-128.png" alt="WebVoice">
-            <span>WebVoice</span>
-        </div>
-        <div class="footer-text">WebVoice — Local-first reading for selected text and web pages.</div>
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="../support/">Support</a>
-            <a href="../index.html">Privacy</a>
-            <a href="CHROME_WEB_STORE_URL_HERE">Chrome Web Store</a>
-        </div>
-    </div>
+  <div class="container">
+    <a href="../">WebVoice</a>
+    <a href="../terms/">Terms</a>
+    <a href="mailto:privacy@webvoice.app">Privacy</a>
+  </div>
 </footer>
-
 </body>
 </html>
