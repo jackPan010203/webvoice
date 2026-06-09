@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebVoice — AI Reading Assistant for Chrome</title>
+  <title>WebVoice — Listen to Web Pages in Chrome</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -160,6 +160,7 @@
       width: 100%; border-radius: 10px;
       border: 1px solid var(--border);
       transition: border-color 0.2s, transform 0.2s;
+      object-fit: cover;
     }
     .screenshot-grid img:hover { border-color: var(--brand); transform: scale(1.02); }
 
@@ -275,8 +276,8 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <h1>Turn Any Text Into<br><span class="highlight">Natural Speech</span></h1>
-    <p>WebVoice reads web pages, articles, and documents aloud — with lifelike AI voices. Read along or listen hands-free.</p>
+    <h1>Listen to web pages with <span class="highlight">WebVoice</span></h1>
+    <p>WebVoice reads selected text or article content aloud in Chrome. Use local voices for free, translate before playback when needed, or unlock cloud TTS and downloadable audio with Pro.</p>
     <div class="hero-actions">
       <a href="https://chrome.google.com/webstore" class="btn btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
@@ -287,15 +288,15 @@
     <div class="badges">
       <span class="badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
-        No account required
+        Local reading stays in your browser
       </span>
       <span class="badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
-        Works on any website
+        Optional cloud TTS
       </span>
       <span class="badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
-        100% offline reading
+        Download cloud-generated audio
       </span>
     </div>
   </div>
@@ -305,38 +306,37 @@
 <section class="features" id="features">
   <div class="container">
     <p class="section-label">Features</p>
-    <h2 class="section-title">Everything you need for hands-free reading</h2>
-    <p class="section-sub">From long-form articles to research papers, WebVoice handles it all so you don't have to.</p>
+    <h2 class="section-title">Everything you need for browser-based listening</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🧠</div>
-        <h3>Smart Text Selection</h3>
-        <p>Select any text on any page and read it instantly. No copying, no pasting — just select and listen.</p>
+        <div class="feature-icon">✍️</div>
+        <h3>Selected Text Reading</h3>
+        <p>Select text on a page and start listening from the popup, shortcut, or selected-text quick menu.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎙️</div>
-        <h3>High-Quality AI Voices</h3>
-        <p>Powered by MiniMax, producing natural, expressive speech that makes long reading sessions easy.</p>
+        <div class="feature-icon">📄</div>
+        <h3>Article Reading</h3>
+        <p>If no text is selected, WebVoice can try to extract the main article content and read it aloud.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Lightning-Fast Processing</h3>
-        <p>Processes and starts playing your content in seconds. No waiting, no lag.</p>
+        <div class="feature-icon">▶️</div>
+        <h3>Playback Controls</h3>
+        <p>Pause, resume, stop, adjust speed, and use text progress to jump through longer content.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌐</div>
-        <h3>Multi-Language Support</h3>
-        <p>Read content in any language with native-sounding voices. Mandarin, English, Japanese, Korean, and more.</p>
+        <h3>Translation Before Playback</h3>
+        <p>Translate selected or extracted content before reading when a translation provider is configured.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🔒</div>
-        <h3>100% Private</h3>
-        <p>All processing happens locally. Your reading history and content never leave your device.</p>
+        <div class="feature-icon">🎙️</div>
+        <h3>Local and Cloud Voices</h3>
+        <p>Use browser or system voices for local reading. Pro users can configure supported cloud TTS providers for higher-quality speech.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🎛️</div>
-        <h3>Playback Controls</h3>
-        <p>Pause, skip, adjust speed, and jump between paragraphs. Full control over your listening experience.</p>
+        <div class="feature-icon">💾</div>
+        <h3>Download Cloud Audio</h3>
+        <p>Save audio generated by supported cloud TTS providers in available formats such as MP3, WAV, or OPUS.</p>
       </div>
     </div>
   </div>
@@ -346,11 +346,11 @@
 <section class="screenshots">
   <div class="container">
     <p class="section-label" style="text-align:center">Screenshots</p>
-    <h2 class="section-title" style="text-align:center">Clean, simple interface</h2>
+    <h2 class="section-title" style="text-align:center">See WebVoice in action</h2>
     <div class="screenshot-grid">
-      <img src="assets/screenshot-1.png" alt="WebVoice popup">
-      <img src="assets/screenshot-2.png" alt="Reading controls">
-      <img src="assets/screenshot-3.png" alt="Voice settings">
+      <img src="assets/screenshot-popup-main-1280x800.png" alt="WebVoice popup main view">
+      <img src="assets/screenshot-settings-subscription-1280x800.png" alt="Settings and subscription">
+      <img src="assets/screenshot-selection-translation-1280x800.png" alt="Selected text and translation">
     </div>
   </div>
 </section>
@@ -359,47 +359,48 @@
 <section class="pricing" id="pricing">
   <div class="container">
     <p class="section-label">Pricing</p>
-    <h2 class="section-title">Simple, transparent pricing</h2>
-    <p class="section-sub">Start free, upgrade when you need more.</p>
+    <h2 class="section-title">Start free, upgrade when you need more</h2>
     <div class="pricing-grid">
       <div class="plan">
         <h3>Free</h3>
-        <div class="price">$0 <span>/month</span></div>
-        <p class="desc">For casual readers</p>
+        <div class="price">$0</div>
+        <p class="desc">For local reading</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> 100K characters/month</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Local voices only</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Basic playback controls</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Personal use</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Selected text reading</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Article content extraction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Local browser/system voices</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Playback controls</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Speed control</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Selected-text quick menu</li>
         </ul>
-        <a href="https://chrome.google.com/webstore" class="btn btn-secondary">Get Started</a>
+        <a href="https://chrome.google.com/webstore" class="btn btn-secondary">Add to Chrome</a>
       </div>
       <div class="plan popular">
-        <div class="plan-badge">MOST POPULAR</div>
-        <h3>Pro</h3>
-        <div class="price">$5 <span>/month</span></div>
-        <p class="desc">For power users</p>
+        <div class="plan-badge">BEST VALUE</div>
+        <h3>Pro Monthly</h3>
+        <div class="price">$2.90<span>/month</span></div>
+        <p class="desc">Includes 7-day trial</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> 10M characters/month</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Cloud AI voices</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Priority processing</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Commercial use allowed</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Email support</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Cloud TTS providers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Download cloud-generated audio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Higher-quality voice options</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Optional translation workflows</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Stripe-hosted checkout</li>
         </ul>
         <a href="https://chrome.google.com/webstore" class="btn btn-primary">Get Pro</a>
       </div>
       <div class="plan">
-        <h3>Team</h3>
-        <div class="price">$12 <span>/month</span></div>
-        <p class="desc">Per seat, billed annually</p>
+        <h3>Lifetime</h3>
+        <div class="price">$39.90<span> one-time</span></div>
+        <p class="desc">Permanent unlock</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Everything in Pro</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Team management console</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Usage analytics</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> SSO & admin controls</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Dedicated support</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> All Pro features</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> No monthly subscription</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Cloud TTS configuration</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Download cloud-generated audio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg> Local license verification</li>
         </ul>
-        <a href="mailto:support@webvoice.app" class="btn btn-secondary">Contact Sales</a>
+        <a href="https://chrome.google.com/webstore" class="btn btn-secondary">Get Lifetime</a>
       </div>
     </div>
   </div>
@@ -416,49 +417,49 @@
           What is WebVoice?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">WebVoice is a Chrome extension that reads any text aloud using AI voices. Select text on any webpage and listen instantly, or paste content directly. Perfect for articles, research papers, and long-form content.</div>
+        <div class="faq-a">WebVoice is a Chrome extension that reads selected text or extracted article content aloud.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
           Is there a free version?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Yes. The free plan includes 100,000 characters per month with local voices. No credit card required.</div>
+        <div class="faq-a">Yes. Free users can use local reading with browser or system voices.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          What are cloud AI voices?
+          What does Pro unlock?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Cloud voices use MiniMax's advanced TTS models for more natural, expressive speech. They're available on Pro and Team plans and process content faster than local voices.</div>
+        <div class="faq-a">Pro unlocks cloud TTS configuration and audio download for supported cloud-generated speech.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          How do I install WebVoice?
+          Does local reading upload page text?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Search "WebVoice" in the Chrome Web Store and click "Add to Chrome". That's it — no account needed to start.</div>
+        <div class="faq-a">No. Local reading uses browser or system voices. Page text stays in the browser.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          What's included in the refund policy?
+          When is text sent to cloud providers?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Pro and Team subscribers can request a full refund within 7 days of purchase — no questions asked.</div>
+        <div class="faq-a">Text is sent only when the user enables and uses cloud TTS or cloud translation.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          Can I use WebVoice for commercial purposes?
+          Can WebVoice read every page?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Pro and Team plans include commercial use. The free plan is for personal use only.</div>
+        <div class="faq-a">No. Some restricted pages, browser PDF viewers, protected iframes, canvas-rendered text, or closed Shadow DOM content may not be readable due to browser security limits.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-          Is my reading data private?
+          Can I download audio?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Yes. Local processing keeps your content on your device. Cloud AI usage is anonymized and never stored longer than needed for playback.</div>
+        <div class="faq-a">Audio download is available for supported cloud TTS output. Local browser voices are for playback and may not provide downloadable audio data.</div>
       </div>
     </div>
   </div>
@@ -467,8 +468,8 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
-    <h2>Start reading smarter today</h2>
-    <p>Join thousands of readers who listen instead of read.</p>
+    <h2>Start listening with WebVoice</h2>
+    <p>Use free local reading today. Upgrade only when you need cloud voices or downloadable audio.</p>
     <a href="https://chrome.google.com/webstore" class="btn btn-primary">Add to Chrome — Free</a>
   </div>
 </section>
@@ -478,9 +479,9 @@
   <div class="container">
     <span>© 2025 WebVoice. All rights reserved.</span>
     <div style="display: flex; gap: 24px;">
+      <a href="https://chrome.google.com/webstore">Chrome Web Store</a>
       <a href="support/">Support</a>
-      <a href="privacy/">Privacy Policy</a>
-      <a href="terms/">Terms of Service</a>
+      <a href="privacy/">Privacy</a>
     </div>
   </div>
 </footer>
