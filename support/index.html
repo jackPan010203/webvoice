@@ -17,7 +17,7 @@
     .logo span { color: var(--brand); }
     h1 { font-size: 2rem; font-weight: 700; margin: 48px 0 16px; }
     .subtitle { color: var(--muted); margin-bottom: 40px; }
-    .faq-item { margin-bottom: 16px; }
+    .faq-item { margin-bottom: 20px; }
     .faq-q { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
     .faq-a { color: var(--muted); font-size: 0.9rem; }
     .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 48px; }
@@ -38,28 +38,57 @@
 
   <div class="faq-item">
     <p class="faq-q">How do I install WebVoice?</p>
-    <p class="faq-a">Search "WebVoice" in the <a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a> and click "Add to Chrome". No account needed.</p>
+    <p class="faq-a">Install WebVoice from the Chrome Web Store and click "Add to Chrome". No account is required for free local reading.</p>
   </div>
+
   <div class="faq-item">
     <p class="faq-q">Why isn't the extension working?</p>
-    <p class="faq-a">Make sure the extension is enabled in chrome://extensions. Try refreshing the page. If it still doesn't work, disable and re-enable the extension.</p>
+    <p class="faq-a">Make sure WebVoice is enabled in chrome://extensions. After installing or updating the extension, refresh the current web page and try again.</p>
   </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Some pages cannot be read</p>
+    <p class="faq-a">Some pages cannot be read because of browser security restrictions. This may include Chrome internal pages, the Chrome Web Store, browser PDF viewers, protected iframes, canvas-rendered text, or closed Shadow DOM content.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How does local reading work?</p>
+    <p class="faq-a">Local reading uses browser or system voices available on your device. In local reading mode, page text stays in your browser and is not uploaded by WebVoice.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Why does a language have no sound?</p>
+    <p class="faq-a">Local reading depends on voices installed in your browser or operating system. If a language has no available voice, install the related system language or speech pack, or use a configured cloud TTS provider.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How do I use cloud TTS?</p>
+    <p class="faq-a">Open WebVoice settings, choose a cloud TTS provider, and enter the required API key or token. Cloud TTS is optional and is used only when you enable it.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Can I download audio?</p>
+    <p class="faq-a">Audio download is available for supported cloud TTS output. Local browser voices are for playback and may not provide downloadable audio data.</p>
+  </div>
+
   <div class="faq-item">
     <p class="faq-q">How do I upgrade to Pro?</p>
-    <p class="faq-a">Click the WebVoice icon in your Chrome toolbar, go to Settings, and choose a plan. You'll be redirected to our secure payment page.</p>
+    <p class="faq-a">Click the WebVoice icon, open Settings, enter the email you want to use for checkout, and choose a plan. Payments open Stripe-hosted checkout pages. WebVoice does not collect credit card details.</p>
   </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How do I verify my purchase?</p>
+    <p class="faq-a">After checkout, return to WebVoice settings and enter the same email used at checkout. WebVoice checks the purchase or subscription status with Stripe.</p>
+  </div>
+
   <div class="faq-item">
     <p class="faq-q">Can I get a refund?</p>
-    <p class="faq-a">Yes — Pro and Team subscribers can request a full refund within 7 days of purchase. Email <a href="mailto:support@webvoice.app">support@webvoice.app</a> with your order details.</p>
-  </div>
-  <div class="faq-item">
-    <p class="faq-q">Does local reading use my internet?</p>
-    <p class="faq-a">Local voices are generated entirely on your device and do not require internet. Cloud AI voices do require a connection.</p>
+    <p class="faq-a">If you need help with a paid monthly or lifetime purchase, contact us within 7 days of purchase with your checkout email and order details.</p>
   </div>
 
   <div class="contact-box">
     <h2>Still need help?</h2>
-    <p>Email us at <a href="mailto:support@webvoice.app">support@webvoice.app</a> and we'll get back to you within 1–2 business days.</p>
+    <p>Email us at <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a> and include your browser version, operating system, and a short description of the issue.</p>
   </div>
 </div>
 </body>
