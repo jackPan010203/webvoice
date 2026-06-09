@@ -43,10 +43,11 @@
   <p>If the user enables cloud TTS or cloud translation, the selected text or extracted page content may be sent to the provider configured by the user, such as OpenAI, ElevenLabs, Microsoft Azure, Google, Baidu, Tencent, Alibaba, DeepL, or a custom HTTP endpoint.</p>
 
   <h2>Payments</h2>
-  <p>Payments and subscription verification is handled by Stripe-hosted pages and Stripe APIs. WebVoice does not collect or store credit card numbers.</p>
+  <p>Payments and subscription verification are handled by Stripe-hosted pages and Stripe APIs. WebVoice does not collect or store credit card numbers.</p>
+  <p>The checkout email entered by the user may be stored locally and used only to verify purchase, subscription, trial, or lifetime license status with Stripe.</p>
 
   <h2>Stored Locally</h2>
-  <p>WebVoice stores user settings, voice preferences, license status, usage state, device ID, and optional provider configuration in browser extension storage.</p>
+  <p>WebVoice stores user settings, voice preferences, checkout email, license status, usage state, device ID, and optional provider configuration in browser extension storage. Optional provider configuration may include API keys or tokens entered by the user. These keys are stored locally and used only to call the provider selected by the user.</p>
 
   <h2>Contact</h2>
   <p>Email: <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a></p>
