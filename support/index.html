@@ -3,93 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support — WebVoice</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --brand: #6366f1; --bg: #0f0f1a; --surface: #1a1a2e; --border: #2a2a4a; --text: #e2e8f0; --muted: #94a3b8; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
-    nav .container { display: flex; align-items: center; gap: 24px; }
-    .logo { font-size: 1.1rem; font-weight: 700; color: #fff; }
-    .logo span { color: var(--brand); }
-    h1 { font-size: 2rem; font-weight: 700; margin: 48px 0 16px; }
-    .subtitle { color: var(--muted); margin-bottom: 40px; }
-    .faq-item { margin-bottom: 20px; }
-    .faq-q { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-    .faq-a { color: var(--muted); font-size: 0.9rem; }
-    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 48px; }
-    .contact-box h2 { font-size: 1.1rem; margin-bottom: 12px; }
-    .contact-box p { color: var(--muted); font-size: 0.9rem; }
-    .contact-box a { color: var(--brand); }
-  </style>
+  <meta name="description" content="WebVoice support and troubleshooting.">
+  <title>Support | WebVoice</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="icon" href="../assets/webvoice-icon-128.png" type="image/png">
 </head>
 <body>
-<nav>
-  <div class="container">
-    <a href="../" class="logo">Web<span>Voice</span></a>
-  </div>
-</nav>
-<div class="container">
-  <h1>Support</h1>
-  <p class="subtitle">Get help with WebVoice</p>
+  <nav class="site-nav"><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="nav-links"><a href="../#features">Features</a><a href="../#pricing">Pricing</a><a href="../privacy/">Privacy</a></div><a href="../" class="nav-cta">Home</a></div></nav>
+  <main class="legal-main">
+    <div class="narrow">
+      <p class="section-label">Help center</p>
+      <h1>Support</h1>
+      <p class="legal-date">Troubleshooting and answers for WebVoice</p>
 
-  <div class="faq-item">
-    <p class="faq-q">How do I install WebVoice?</p>
-    <p class="faq-a">Install WebVoice from the Chrome Web Store and click "Add to Chrome". No account is required for free local reading.</p>
-  </div>
+      <h2>Installing and starting</h2>
+      <p>Install WebVoice from the <a href="https://chromewebstore.google.com/detail/webvoice-web-page-reader/mmpjbelngnpnbloeamokfkfpfoggncfb?hl=en-US">Chrome Web Store</a>. Open the extension popup, choose a source, and start local reading. No account is required for free local reading.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">Why isn't the extension working?</p>
-    <p class="faq-a">Make sure WebVoice is enabled in chrome://extensions. After installing or updating the extension, refresh the current web page and try again.</p>
-  </div>
+      <h2>Cleaning a page</h2>
+      <p>Choose the cleaning preview entry in the popup. The reading view extracts the selected text first, then the main article, then visible content blocks. You can remove blocks, restore them, decide whether headings or author details should be spoken, and copy the cleaned original or translation. Cleaning changes only the temporary reading view, not the source page.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">Some pages cannot be read</p>
-    <p class="faq-a">Some pages cannot be read because of browser security restrictions. This may include Chrome internal pages, the Chrome Web Store, browser PDF viewers, protected iframes, canvas-rendered text, or closed Shadow DOM content.</p>
-  </div>
+      <h2>Opening a local book</h2>
+      <p>Use <strong>Open local file</strong> in the popup and choose an EPUB, TXT, HTML, or Markdown file. The book reader parses the file in the browser, shows its chapters when available, and keeps the current book session temporary. A file larger than 50 MB or a DRM/encrypted EPUB cannot be imported.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">How does local reading work?</p>
-    <p class="faq-a">Local reading uses browser or system voices available on your device. In local reading mode, page text stays in your browser and is not uploaded by WebVoice.</p>
-  </div>
+      <h2>Why is a page unavailable?</h2>
+      <p>Chrome internal pages, the Chrome Web Store, browser PDF viewers, protected iframes, canvas-rendered text, and some closed Shadow DOM content are restricted by the browser. Refresh the page after installing or updating the extension, then try a normal web page or select the text manually.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">Why does a language have no sound?</p>
-    <p class="faq-a">Local reading depends on voices installed in your browser or operating system. If a language has no available voice, install the related system language or speech pack, or use a configured cloud TTS provider.</p>
-  </div>
+      <h2>Why is a language missing a voice?</h2>
+      <p>Local reading depends on voices installed in Chrome or your operating system. Install the relevant language or speech pack, restart Chrome, and reopen the voice list. Cloud TTS is optional and depends on the provider and API key configured in Settings.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">How do I use cloud TTS?</p>
-    <p class="faq-a">Open WebVoice settings, choose a cloud TTS provider, and enter the required API key or token. Cloud TTS is optional and is used only when you enable it. Cloud TTS availability, voices, formats, and pricing depend on the selected provider.</p>
-  </div>
+      <h2>Cloud TTS, translation, and downloads</h2>
+      <p>Cloud features are optional. When enabled, the text needed for the request is sent to the provider you selected. Provider pricing and limits are separate from WebVoice. Downloadable audio is available only for supported cloud TTS output; local browser voices may not expose an audio file.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">Can I download audio?</p>
-    <p class="faq-a">Audio download is available for supported cloud TTS output. Local browser voices are for playback and may not provide downloadable audio data.</p>
-  </div>
+      <h2>Purchase verification</h2>
+      <p>Use the same email entered at Stripe checkout in WebVoice Settings, then choose <strong>Verify purchase</strong>. The extension checks the purchase through the WebVoice license service and binds the license to the current device, up to the stated five-device limit. A temporary network error keeps the last known local status; try again later if verification cannot complete.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">How do I upgrade to Pro?</p>
-    <p class="faq-a">Click the WebVoice icon, open Settings, enter the email you want to use for checkout, and choose a plan. Payments open Stripe-hosted checkout pages. WebVoice does not collect credit card details.</p>
-  </div>
+      <h2>Refunds</h2>
+      <p>Paid monthly charges and lifetime purchases can be eligible for a refund within 7 days. See the <a href="../refund/">Refund Policy</a> for the required details and processing times.</p>
 
-  <div class="faq-item">
-    <p class="faq-q">How do I verify my purchase?</p>
-    <p class="faq-a">After checkout, return to WebVoice settings and enter the same email used at checkout. WebVoice checks the purchase or subscription status with Stripe.</p>
-  </div>
-
-  <div class="faq-item">
-    <p class="faq-q">Can I get a refund?</p>
-    <p class="faq-a">If you need help with a paid monthly or lifetime purchase, contact us within 7 days of purchase with your checkout email and order details.</p>
-  </div>
-
-  <div class="contact-box">
-    <h2>Still need help?</h2>
-    <p>Email us at <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a> and include your browser version, operating system, and a short description of the issue.</p>
-  </div>
-</div>
+      <div class="contact-box"><h2>Still need help?</h2><p>Email <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a> with your Chrome version, operating system, extension version, the page or file type involved, and a short description of what happened. Never include payment card numbers or API keys.</p></div>
+    </div>
+  </main>
+  <footer><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="footer-links"><a href="../terms/">Terms</a><a href="../privacy/">Privacy</a><a href="../refund/">Refunds</a></div></div></footer>
 </body>
 </html>

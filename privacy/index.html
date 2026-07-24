@@ -3,62 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — WebVoice</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --brand: #6366f1; --bg: #0f0f1a; --surface: #1a1a2e; --border: #2a2a4a; --text: #e2e8f0; --muted: #94a3b8; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    a { color: var(--brand); text-decoration: none; }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
-    nav .container { display: flex; align-items: center; gap: 24px; }
-    .logo { font-size: 1.1rem; font-weight: 700; color: #fff; }
-    .logo span { color: var(--brand); }
-    h1 { font-size: 2rem; font-weight: 700; margin: 48px 0 12px; }
-    .date { color: var(--muted); font-size: 0.85rem; margin-bottom: 40px; }
-    h2 { font-size: 1.15rem; font-weight: 600; margin: 36px 0 12px; }
-    p, li { color: var(--muted); font-size: 0.9rem; }
-    ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
-    footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px; }
-    footer .container { display: flex; gap: 20px; font-size: 0.85rem; }
-    footer a { color: var(--muted); }
-  </style>
+  <meta name="description" content="WebVoice Privacy Policy.">
+  <title>Privacy Policy | WebVoice</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="icon" href="../assets/webvoice-icon-128.png" type="image/png">
 </head>
 <body>
-<nav>
-  <div class="container">
-    <a href="../" class="logo">Web<span>Voice</span></a>
-  </div>
-</nav>
-<div class="container">
-  <h1>Privacy Policy</h1>
-  <p class="date">Last updated: June 2025</p>
+  <nav class="site-nav"><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="nav-links"><a href="../#features">Features</a><a href="../#pricing">Pricing</a><a href="../support/">Support</a></div><a href="../" class="nav-cta">Home</a></div></nav>
+  <main class="legal-main">
+    <div class="narrow">
+      <h1>Privacy Policy</h1>
+      <p class="legal-date">Last updated: July 2026</p>
+      <p class="legal-lead">WebVoice does not sell personal data. This policy explains what the extension processes locally, what is sent when you choose a cloud feature, and how purchase verification works.</p>
 
-  <p>WebVoice does not sell user data.</p>
+      <h2>1. Page reading and cleaning</h2>
+      <p>When you use local reading, page text, selected text, cleaning results, reading blocks, playback position, and highlights are processed in the browser or by the operating system voice engine. WebVoice does not upload that text to its own servers for local reading.</p>
 
-  <h2>Local Reading</h2>
-  <p>When using local reading, selected text and page content are processed in the browser or by the operating system voice engine. WebVoice does not upload this text to our servers.</p>
+      <h2>2. Local books</h2>
+      <p>EPUB, TXT, HTML, and Markdown files are parsed in the browser. The temporary import slot and the current book document are used only for the active book session. WebVoice does not create a permanent cloud library or save the full book as long-term account data. Your original file remains on your device.</p>
 
-  <h2>Cloud TTS and Translation</h2>
-  <p>If the user enables cloud TTS or cloud translation, the selected text or extracted page content may be sent to the provider configured by the user, such as OpenAI, ElevenLabs, Microsoft Azure, Google, Baidu, Tencent, Alibaba, DeepL, or a custom HTTP endpoint.</p>
+      <h2>3. Cloud TTS and translation</h2>
+      <p>If you enable a configured cloud TTS or translation provider, the text needed for that request is sent directly to the provider you selected, such as OpenAI, ElevenLabs, Microsoft Azure, Google, Baidu, Tencent, Alibaba, DeepL, or a custom endpoint. The provider's own terms, privacy policy, regional processing, retention, and charges apply. Do not send content to a provider unless you are comfortable with that provider processing it.</p>
 
-  <h2>Payments</h2>
-  <p>Payments and subscription verification are handled by Stripe-hosted pages and Stripe APIs. WebVoice does not collect or store credit card numbers.</p>
-  <p>The checkout email entered by the user may be stored locally and used only to verify purchase, subscription, trial, or lifetime license status with Stripe.</p>
+      <h2>4. Purchase and license verification</h2>
+      <p>Checkout is hosted by Stripe. The extension sends the normalized checkout email, a device identifier, and the extension version to the WebVoice license Worker at <a href="https://webvoice-license-api.pdx010203.workers.dev" rel="noopener">webvoice-license-api.pdx010203.workers.dev</a>. The Worker uses a Stripe Restricted Key kept outside the extension to check the relevant subscription or lifetime purchase.</p>
+      <p>For license verification, the Worker stores a license cache in Cloudflare D1. This can include the normalized email, Stripe customer and purchase or subscription identifiers, plan type, status, trial or billing period dates, cancellation state, verification timestamps, and a salted hash of the device identifier. It does not store card numbers or the page and book text. The device hash is used to enforce the current five-device activation limit.</p>
 
-  <h2>Stored Locally</h2>
-  <p>WebVoice stores user settings, voice preferences, checkout email, license status, usage state, device ID, and optional provider configuration in browser extension storage. Optional provider configuration may include API keys or tokens entered by the user. These keys are stored locally and used only to call the provider selected by the user.</p>
+      <h2>5. Extension storage</h2>
+      <p>The extension stores settings, voice preferences, language choices, checkout email, license status, usage state, device identifier, and optional provider configuration in Chrome extension storage. API keys or tokens that you enter are kept locally on your device and used to call the provider you selected. Do not share your extension profile or API keys.</p>
 
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a></p>
+      <h2>6. Payments and third parties</h2>
+      <p>Stripe processes payments and may process billing information under its own privacy policy. Cloudflare provides the Worker and D1 infrastructure used for license verification. WebVoice does not receive or store your full payment card details.</p>
 
-</div>
-<footer>
-  <div class="container">
-    <a href="../">WebVoice</a>
-    <a href="../terms/">Terms</a>
-    <a href="mailto:pdx010203@gmail.com">Privacy</a>
-  </div>
-</footer>
+      <h2>7. Retention and choices</h2>
+      <p>License records are retained as needed to verify purchases, enforce device activation, prevent abuse, and provide customer support. Page text and full imported books are not retained by the license service. You can stop using cloud features, remove provider keys from Settings, clear extension storage, or uninstall WebVoice. Clearing local storage removes the locally saved checkout email and license cache; a future verification may request the email again.</p>
+
+      <h2>8. Contact</h2>
+      <p>For privacy questions or a request about license verification data, email <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a>. Stripe and Cloudflare may also receive requests that relate to data they process directly.</p>
+    </div>
+  </main>
+  <footer><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="footer-links"><a href="../support/">Support</a><a href="../terms/">Terms</a><a href="../refund/">Refunds</a></div></div></footer>
 </body>
 </html>

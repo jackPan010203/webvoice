@@ -3,84 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service — WebVoice</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --brand: #6366f1; --bg: #0f0f1a; --surface: #1a1a2e; --border: #2a2a4a; --text: #e2e8f0; --muted: #94a3b8; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
-    a { color: var(--brand); text-decoration: none; }
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    nav { padding: 20px 0; border-bottom: 1px solid var(--border); }
-    nav .container { display: flex; align-items: center; gap: 24px; }
-    .logo { font-size: 1.1rem; font-weight: 700; color: #fff; }
-    .logo span { color: var(--brand); }
-    h1 { font-size: 2rem; font-weight: 700; margin: 48px 0 12px; }
-    .date { color: var(--muted); font-size: 0.85rem; margin-bottom: 40px; }
-    h2 { font-size: 1.15rem; font-weight: 600; margin: 36px 0 12px; }
-    p, li { color: var(--muted); font-size: 0.9rem; }
-    ul { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
-    footer { border-top: 1px solid var(--border); padding: 28px 0; margin-top: 60px; }
-    footer .container { display: flex; gap: 20px; font-size: 0.85rem; }
-    footer a { color: var(--muted); }
-  </style>
+  <meta name="description" content="WebVoice Terms of Service.">
+  <title>Terms of Service | WebVoice</title>
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="icon" href="../assets/webvoice-icon-128.png" type="image/png">
 </head>
 <body>
-<nav>
-  <div class="container">
-    <a href="../" class="logo">Web<span>Voice</span></a>
-  </div>
-</nav>
-<div class="container">
-  <h1>Terms of Service</h1>
-  <p class="date">Last updated: June 2025</p>
+  <nav class="site-nav"><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="nav-links"><a href="../#features">Features</a><a href="../#pricing">Pricing</a><a href="../support/">Support</a></div><a href="../" class="nav-cta">Home</a></div></nav>
+  <main class="legal-main">
+    <div class="narrow">
+      <h1>Terms of Service</h1>
+      <p class="legal-date">Last updated: July 2026</p>
+      <p class="legal-lead">By installing or using WebVoice, you agree to these terms. If you do not agree, do not use the extension or related pages.</p>
 
-  <p>By using WebVoice, you agree to these terms. If you do not agree, do not use the service.</p>
+      <h2>1. The service</h2>
+      <p>WebVoice is a Chrome extension that can extract and clean page text, read selected or extracted content using local browser voices, translate content when a provider is configured, and open EPUB, TXT, HTML, or Markdown files in a temporary local book reader. Some cloud TTS and cloud audio export features are available only to an active Pro subscription or lifetime license.</p>
 
-  <h2>1. Service Description</h2>
-  <p>WebVoice is a Chrome extension that reads text aloud using local browser voices or optional cloud TTS providers configured by the user. Free accounts use local voices. Pro unlocks cloud TTS and audio download.</p>
+      <h2>2. Your content and third-party providers</h2>
+      <p>You keep your rights to text, files, and other content that you choose to process. You are responsible for having the right to access, translate, read, download, or otherwise use that content. If you enable a third-party TTS or translation provider, you are also responsible for complying with that provider's terms and privacy policy. Provider fees, limits, availability, retention, and output quality are outside WebVoice's control.</p>
 
-  <h2>2. Acceptable Use</h2>
-  <p>You may not use WebVoice to:</p>
-  <ul>
-    <li>Generate content that promotes hate speech, harassment, or illegal activity</li>
-    <li>Reverse-engineer, copy, or resell the extension or its output</li>
-    <li>Use the service in a way that violates applicable laws</li>
-  </ul>
+      <h2>3. Acceptable use</h2>
+      <p>You may not use WebVoice to violate applicable law or another person's rights, abuse a provider, bypass a technical restriction, distribute malware, or interfere with the extension or its license service. You may not copy, resell, or redistribute the extension or its proprietary assets except as permitted by applicable law.</p>
 
-  <h2>3. Subscriptions</h2>
-  <ul>
-    <li>Pro Monthly ($2.90/month, includes 7-day trial) and Lifetime ($39.90 one-time) plans are processed by Stripe.</li>
-    <li>Monthly subscriptions renew automatically unless cancelled before the renewal date.</li>
-    <li>Refunds are available within 7 days of purchase — email <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a>.</li>
-  </ul>
+      <h2>4. Plans, payment, and device activation</h2>
+      <ul>
+        <li>Pro Monthly is currently listed at $2.90 per month. A 7-day trial is available only when the Stripe checkout page explicitly displays a trial.</li>
+        <li>Lifetime is currently listed at $39.90 as a one-time purchase. Prices and plan details are shown at Stripe checkout and may change for future purchases.</li>
+        <li>Stripe hosts checkout and payment processing. WebVoice does not receive or store your card number.</li>
+        <li>Monthly subscriptions renew automatically unless cancelled before the next renewal. Cancellation normally leaves access active until the current billing period ends.</li>
+        <li>One purchase can be activated on up to five devices. Device activation is checked by the license service and is subject to the limits shown in the extension.</li>
+        <li>Refund eligibility is described in the <a href="../refund/">Refund Policy</a>.</li>
+      </ul>
 
-  <h2>4. Intellectual Property</h2>
-  <p>WebVoice and its original content are owned by us. We grant you a non-exclusive license to use the extension as intended. You retain rights to content you input.</p>
+      <h2>5. License verification</h2>
+      <p>To verify a purchase, the extension sends the checkout email, a device identifier, and the extension version to the WebVoice license service. The service checks the purchase with Stripe and returns a limited license status. A network outage, incorrect email, cancelled subscription, or device limit may prevent Pro activation. Free local reading remains available where the extension and browser support it.</p>
 
-  <h2>5. Disclaimer</h2>
-  <p>WebVoice is provided "as is" without warranties of any kind. We do not guarantee the availability, accuracy, or uninterrupted operation of the service.</p>
+      <h2>6. Intellectual property</h2>
+      <p>WebVoice, its original code, branding, documentation, and website assets are owned by their respective rights holders. Subject to these terms, we grant you a limited, non-exclusive, non-transferable license to use the published extension for its intended purpose.</p>
 
-  <h2>6. Limitation of Liability</h2>
-  <p>To the maximum extent permitted by law, we are not liable for indirect, incidental, or consequential damages arising from your use of WebVoice.</p>
+      <h2>7. Availability and disclaimer</h2>
+      <p>The extension is provided on an "as is" and "as available" basis. We do not guarantee that every page, browser voice, provider, file, translation, or audio format will work, or that the service will be uninterrupted or error-free. Browser restrictions, content changes, provider outages, and local system settings can affect results.</p>
 
-  <h2>7. Account Termination</h2>
-  <p>We may suspend or terminate accounts that violate these terms. Free users can be terminated if the service is abused.</p>
+      <h2>8. Limitation of liability</h2>
+      <p>To the maximum extent permitted by applicable law, WebVoice and its operator are not liable for indirect, incidental, special, consequential, or lost-profit damages arising from use of the extension, third-party providers, or inability to use the service. Nothing in these terms limits liability that cannot lawfully be limited.</p>
 
-  <h2>8. Changes to Terms</h2>
-  <p>We may update these terms. Material changes will be communicated via the extension or email. Continued use after changes take effect constitutes acceptance.</p>
+      <h2>9. Suspension and termination</h2>
+      <p>We may suspend license verification or terminate access when reasonably necessary to address abuse, fraud, a security issue, or a material breach of these terms. You may stop using the extension at any time. Ending use does not remove obligations that by their nature should continue.</p>
 
-  <h2>9. Governing Law</h2>
-  <p>These terms are governed by the laws of the jurisdiction in which our company operates.</p>
+      <h2>10. Changes</h2>
+      <p>We may update these terms as the service changes. We will update the date above and, when appropriate, provide notice in the extension or on this website. Continued use after an update takes effect means you accept the revised terms.</p>
 
-  <h2>10. Contact</h2>
-  <p>Questions? Email <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a>.</p>
-</div>
-<footer>
-  <div class="container">
-    <a href="../">WebVoice</a>
-    <a href="../privacy/">Privacy</a>
-    <a href="mailto:pdx010203@gmail.com">Support</a>
-  </div>
-</footer>
+      <h2>11. Governing law</h2>
+      <p>These terms are interpreted under the laws that apply to the service operator, subject to any mandatory consumer protections in your place of residence. If a court finds part of these terms unenforceable, the remaining terms continue to apply.</p>
+
+      <div class="contact-box"><h2>12. Contact</h2><p>Questions about these terms can be sent to <a href="mailto:pdx010203@gmail.com">pdx010203@gmail.com</a>.</p></div>
+    </div>
+  </main>
+  <footer><div class="container"><a href="../" class="logo">Web<span>Voice</span></a><div class="footer-links"><a href="../support/">Support</a><a href="../privacy/">Privacy</a><a href="../refund/">Refunds</a></div></div></footer>
 </body>
 </html>
