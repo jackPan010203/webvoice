@@ -30,7 +30,10 @@
       <p>For license verification, the Worker stores a license cache in Cloudflare D1. This can include the normalized email, Stripe customer and purchase or subscription identifiers, plan type, status, trial or billing period dates, cancellation state, verification timestamps, and a salted hash of the device identifier. It does not store card numbers or the page and book text. The device hash is used to enforce the current five-device activation limit.</p>
 
       <h2>5. Extension storage</h2>
-      <p>The extension stores settings, voice preferences, language choices, checkout email, license status, usage state, device identifier, and optional provider configuration in Chrome extension storage. API keys or tokens that you enter are kept locally on your device and used to call the provider you selected. Do not share your extension profile or API keys.</p>
+      <p>The extension stores settings, voice preferences, language choices, checkout email, license status, usage state, device identifier, optional provider configuration, and limited reading‑library metadata in Chrome extension storage. Reading‑library metadata can include a page title, normalized URL, opaque content or file fingerprint, chapter or paragraph identifier, saved character offset, and timestamp. It does not include the full page text, translated text, or full imported book content.</p>
+
+      <p>API keys or tokens that you enter are kept locally on your device and used only to call the provider you selected. You can remove individual reading‑library entries in the extension, clear extension storage, or uninstall WebVoice. Do not share your extension profile or API keys.</p>
+
 
       <h2>6. Payments and third parties</h2>
       <p>Stripe processes payments and may process billing information under its own privacy policy. Cloudflare provides the Worker and D1 infrastructure used for license verification. WebVoice does not receive or store your full payment card details.</p>
